@@ -1,11 +1,11 @@
 public class ConvertersDecimal{
 	
-	public static String BinaryConverter(int numberOne){
+	public static String BinaryConverter(double numberOne){
 		String result="";
-		int module=0;
+		double module=0;
 		
-		if(numberOne<1){
-			
+		if(numberOne<2){
+			result=BinaryProcess(numberOne)+result;
 		}
 		else{
 			while(numberOne>1){
@@ -27,7 +27,7 @@ public class ConvertersDecimal{
 		return result;
 	}//fin del metodo de entrega de binarios
 	
-	public static String BinaryProcess(int number){
+	public static String BinaryProcess(double number){
 		String result="";
 
 		if(number==0){
@@ -42,13 +42,13 @@ public class ConvertersDecimal{
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-	public static String HexaConverter(int numberOne){
+	public static String HexaConverter(double numberOne){
 
 		String result="";
-		int module=0;
+		double module=0;
 
 		if(numberOne<16){
-			result=HexaProcess(numberOne);
+			result=HexaProcess((int)numberOne);
 		}
 		else{
 			while(numberOne>15){
@@ -57,10 +57,10 @@ public class ConvertersDecimal{
 				numberOne=numberOne/16;
 
 				if(numberOne<16){
-					result=HexaProcess(numberOne)+result;
+					result=HexaProcess((int)numberOne)+result;
 				}
 				else{
-				result=HexaProcess(module)+result;
+				result=HexaProcess((int)module)+result;
 				}//fin de los condicionales
 
 			}//fin del bucle while

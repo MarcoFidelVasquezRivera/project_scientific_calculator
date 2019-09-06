@@ -1,10 +1,12 @@
+import java.lang.Math;
+
 public class ConvertersHexadecimal{
 
-	public static int DecimalConverter(String numberOne){
-		int result=0;
-		char helper='';
+	public static double DecimalConverter(String numberOne){
+		double result=0.0;
+		char helper;
 
-		for(int i=(numberOne.length-1);i>=0;i--){
+		for(int i=(numberOne.length()-1);i>=0;i--){
 
 			helper=numberOne.charAt(i);
 			result=result+DecimalProcess(helper,i);
@@ -15,7 +17,7 @@ public class ConvertersHexadecimal{
 
 
 	public static int DecimalProcess(char numberHexa,int power){
-		int result=0;
+		double result=0.0;
 
 		switch(numberHexa){
 
@@ -73,10 +75,10 @@ public class ConvertersHexadecimal{
 
 
 	public static long BinaryConverter(String numberOne){
-		long result=0;
-		long helper=0;
+		double result=0.0;
+		double helper=0.0;
 
-		helper=DecimalConverter(numberOne);
+		helper=Double.parseDouble(DecimalConverter(numberOne));
 		result=ConvertersDecimal.BinaryConverter(helper);
 
 		return result;

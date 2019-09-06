@@ -1,5 +1,5 @@
-
 import java.lang.Math;
+
 public class ComplexOperations{
 	
 	public static double result=0; 
@@ -52,11 +52,17 @@ public class ComplexOperations{
 	
 	public static double baseten(double numberOne){
 		
-		 double result= 0.0;
+		//result= 0.0;//incompleto
 		
 		return result;
 	}//fin metodo de base 10
 	
-//falta poner logaritmo natural*************************
+	public static double logarithmE(double numberOne){
+
+		result=Math.log(numberOne);
+
+		return result;
+	}//fin del metodo
+
 	
 }// FIN DE LA CLASE
