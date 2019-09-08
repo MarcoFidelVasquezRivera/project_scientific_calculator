@@ -1,5 +1,11 @@
 public class ConvertersDecimal{
 	
+/**
+*This method calculates the convertion from decimal to binary.
+*<b>Post:</b> The method has calculated the convertion.<br>
+@param numberOne its the given number in decimal.
+@return result result of the convertion. 
+*/
 	public static String BinaryConverter(double numberOne){
 		String result="";
 		double module=0;
@@ -27,6 +33,13 @@ public class ConvertersDecimal{
 		
 		return result;
 	}//fin del metodo de entrega de binarios
+
+/**
+*This method does the convertion.
+*<b>Post:</b> The method has done the convertion.<br>
+@param number its the given number in decimal and its zero or one. number==0 || number==1.
+@return result result of the convertion. 
+*/
 	
 	public static String BinaryProcess(double number){
 		String result="";
@@ -43,6 +56,12 @@ public class ConvertersDecimal{
 
 //+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
+/**
+*This method calculates the conversion from decimal to hexadecimal.
+*<b>Post:</b> The method has calculated the conversion.<br>
+@param numberOne its the given number in decimal.
+@return result result of the conversion. 
+*/
 	public static String HexaConverter(double numberOne){
 
 		String result="";
@@ -71,6 +90,13 @@ public class ConvertersDecimal{
 
 		return result;
 	}//fin del metodo de entreg de hexadecimal
+
+/**
+*This method does the convertion.
+*<b>Post:</b> The method has done the convertion.<br>
+@param number its the given number in decimal and its between zero until fifthen.
+@return result result of the convertion. 
+*/
 
 	public static String HexaProcess(int number){
 

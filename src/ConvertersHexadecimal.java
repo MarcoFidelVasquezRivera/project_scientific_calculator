@@ -2,6 +2,13 @@ import java.lang.Math;
 
 public class ConvertersHexadecimal{
 
+/**
+*This method calculates the convertion from hexadecimal to decimal.
+*<b>Post:</b> The method has calculated the convertion.<br>
+@param numberOne its a String with the given number in hexadecimal.
+@return result result of the convertion. 
+*/
+
 	public static double DecimalConverter(String numberOne){
 		double result=0.0;
 		char helper;
@@ -16,6 +23,13 @@ public class ConvertersHexadecimal{
 		return result;
 	}//fin del metodo para convertir de hexadecimal a decimal
 
+/**
+*This method does the convertion.
+*<b>Post:</b> The method has done the convertion.<br>
+@param number its the given number in hexadecimal between zero and F. 
+@param power its the exponent.
+@return result result of the convertion. 
+*/
 
 	public static double DecimalProcess(char numberHexa,int power){
 		double result=0.0;
@@ -74,6 +88,12 @@ public class ConvertersHexadecimal{
 		return result;
 	}//fin del metodo
 
+/**
+*This method calculates the convertion from hexadecimal to binary.
+*<b>Post:</b> The method has calculated the convertion.<br>
+@param numberOne its a String with the given number in hexadecimal.
+@return result result of the convertion. 
+*/
 
 	public static String BinaryConverter(String numberOne){
 		String result="";

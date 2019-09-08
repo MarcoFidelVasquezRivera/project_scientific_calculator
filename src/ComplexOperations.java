@@ -4,6 +4,13 @@ public class ComplexOperations{
 	
 	public static double result=0; 
 	
+/**
+*This method calculates the squared root of a number.
+*<b>pre:</b> result has been declared.<br>
+*<b>Post:</b> The method has calculated the squared root.<br>
+@param numberOne its the given number. numberOne>0.
+@return result result of the squared root. 
+*/
 	public static double SquareRoot(double numberOne){
 		
 		double helper=0;
@@ -18,12 +25,36 @@ public class ComplexOperations{
 		}
 		return result;//funciona
 	}//fin del metodo de raiz cuadrada
+
+/**
+*This method calculates the nth-root.
+*<b>pre:</b> result has been declared.<br>
+*<b>Post:</b> The method has calculated the nth-root.<br>
+@param numberOne its the index. 
+@param numberTwo its the root.
+@return result result of the nth-root. 
+*/
 	
 	public static double NthRoot(double numberOne, double numberTwo){
+		if((numberTwo%2)==(0) && numberOne<0){
+			result=0;
+			System.out.println("no se puede sacar una raiz par de un numero negativo");
+		}
+		else{
+			result=	Math.pow(numberOne,1.0/numberTwo);
+			return result;//funciona
+		}
 		
-		result=	Math.pow(numberOne,1.0/numberTwo);
-		return result;//funciona
 	}//fin del metodo de raiz enesima,aun en desarrollo
+
+/**
+*This method calculates the nth-power of a number.
+*<b>pre:</b> result has been declared.<br>
+*<b>Post:</b> The method has calculated the power.<br>
+@param numberOne its the number. 
+@param numberTwo its the power.
+@return result result of the nth-power. 
+*/
 	
 	public static double Potentiation(double numberOne, double numberTwo){
 		result=numberOne;
@@ -35,6 +66,13 @@ public class ComplexOperations{
 		return result;//funciona
 	}//fin del metodo poteciacion
 	
+/**
+*This method calculates the factorial of a number.
+*<b>pre:</b> result has been declared.<br>
+*<b>Post:</b> The method has calculated the factorial.<br>
+@param numberOne its the given number. numberOne>0.
+@return result result of the factorial. 
+*/
 	public static double Factorial(double numberOne){
 		result=1;
 		for(int i=1;i<=numberOne;i++){
@@ -44,6 +82,13 @@ public class ComplexOperations{
 		return result;//funciona
 	}//fin del metodo factorial
 	
+/**
+*This method calculates the logarithm10 of a number.
+*<b>pre:</b> result has been declared.<br>
+*<b>Post:</b> The method has calculated the logarithm10.<br>
+@param numberOne its the given number. numberOne>0.
+@return result result of the logarith10. 
+*/
 	public static double Logarithm10(double numberOne){
 		
 		result=java.lang.Math.log10(numberOne);
@@ -83,6 +128,14 @@ public class ComplexOperations{
 		return solution;
 	}//fin metodo de base 10
 	
+
+/**
+*This method calculates the natural-logarithm of a number.
+*<b>pre:</b> result has been declared.<br>
+*<b>Post:</b> The method has calculated the natural-logarithm.<br>
+@param numberOne its the given number. numberOne>0.
+@return result result of the natural-logarith. 
+*/
 	public static double LogarithmE(double numberOne){
 
 		result=Math.log(numberOne);

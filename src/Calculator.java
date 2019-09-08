@@ -761,6 +761,11 @@ public class Calculator{
 	
 	}//fin del metodo
 
+/**
+*This method prints a small manual about calculators' operation.
+*<b>post: </b> The manual has been printed on screen.<br>
+*/
+
 	public static void Message(){
 		System.out.println("escriba <+> para realizar la suma ");
 		System.out.println("escriba <-> para realizar la resta ");
@@ -787,6 +792,10 @@ public class Calculator{
 
 	}//fin del metodo
 
+/**
+*This method prints a small manual about conversion's operations.
+*<b>post: </b> The manual has been printed on screen.<br>
+*/
 	public static void MenuConvertions(){
 
 		System.out.println("ingrese la conversion que desea realizar");
@@ -800,6 +809,15 @@ public class Calculator{
 		System.out.println("ingrese <HEXTOBIN> si desea convertir de grados a radianes");
 
 	}//fin del metodo
+
+/**
+*This method evaluates if the entered number is pi or a number from the memory.
+*<b>Pre:</b> The memory has been declared and the number has been entered.<br>
+*<b>Post:</b> The entered number has been evaluated and changed for its respective value.<br>
+@param number number to evaluate. number!=null && number!="".
+@return result return its a String value. return!=null && return!="". 
+
+*/
 
 	public static String Conditional(String number){
 		String result="";
@@ -864,6 +882,12 @@ public class Calculator{
 		return result;
 	}
 
+/**
+*This method saves results in a memory array of ten positions.
+*<b>Pre:</b> Array results is initialized.<br>
+*<b>post:</b> The method has saved result in the array's first position and has moved previus results (if any) to the right.<br>
+@param result result to save. result !=null && result!="".
+*/
 	public static void SaveNumbers(String result){
 
 		for(int count=9;count>=0;count--){

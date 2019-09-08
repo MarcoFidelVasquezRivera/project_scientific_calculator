@@ -2,6 +2,12 @@ import java.lang.Math;
 
 public class ConvertersBinary{
 
+/**
+*This method calculates the convertion from binary to decimal.
+*<b>Post:</b> The method has calculated the convertion.<br>
+@param numberOne its a String with the given number in binary.
+@return result result of the convertion. 
+*/
 	public static double DecimalConverter(String numberOne){//cambiar numberOne a string
 		double result=0;
 		double module=0;
@@ -21,7 +27,13 @@ public class ConvertersBinary{
 		return result;
 	}//fin del metodo de conversion a decimales
 
-
+/**
+*This method does the convertion.
+*<b>Post:</b> The method has done the convertion.<br>
+@param number its the given number in binary. number==0 || number==1.
+@param power its the exponent.
+@return result result of the convertion. 
+*/
 	public static double DecimalProcess(int number,int power){
 		double result;
 
@@ -31,7 +43,12 @@ public class ConvertersBinary{
 		return result;
 	}//fin del metodo
 
-
+/**
+*This method calculates the convertion from binary to hexadecimal.
+*<b>Post:</b> The method has calculated the convertion.<br>
+@param numberOne its a String with the given number in binary.
+@return result result of the convertion. 
+*/
 	public static String HexaConverter(String numberOne){
 		String result="";
 		double helper=0;
