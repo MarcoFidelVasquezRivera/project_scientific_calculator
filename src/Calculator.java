@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Calculator{
 
 	public final static double pi=3.1416;
+	public static String[] array= new String[10];
 
 	public static void main(String[]args){
 		Scanner reader= new Scanner(System.in);
@@ -11,16 +12,15 @@ public class Calculator{
 		int continueOperation=0;
 		int mode=0;
 		int degOrGrad=0;
+		int modeTwo=0;
 		String operation="";
 		String numberOne="";
 		String numberTwo="";
 		String result="";
 		String convertionsTipe="";
 
-		int[] array= new int[10];
-
 		System.out.println("bienvenido, ingrese el modo que desea usar");
-		System.out.println("ingrese 1 para flujo de operaciones y 2 para una operacion a la vez");
+		System.out.println("ingrese 1 para una operacion a la vez y 2 para flujo de operaciones ");
 
 		mode=reader.nextInt();
 
@@ -31,22 +31,14 @@ public class Calculator{
 		}
 
 
-		System.out.println("ingrese la operacion que desea realizar");
 		Message();
-		operation=lecture.next();
+		
 
-		System.out.println(operation);
-/*
-		while((operation!="+") && (operation!="-") && (operation!="*") && (operation!="/") && (operation!="%") && (operation!="RAIZ") && (operation!="RAIZN") && (operation!="POTENCIACION") && (operation!="FACTORIAL") && (operation!="CONVERSION") && (operation!="SEN") && (operation!="COS") && (operation!="TAN") && (operation!="LOG") && (operation!="LOGN") && (operation!="NOTACIONC") && (operation!="OPERACION")){
-			
-			System.out.println("la operacion que realizo no concuerda con ninguna de las disponibles en esta calculadora");
-			System.out.println("ingrese la operacion que desea realizar");
-			operation=lecture.next();	
-			System.out.println(operation);		
-
-		}// fin del bucle para revisar que la operacion que se ingrese sea compatible
-*/
 		while(continueOperation==0){
+			System.out.println("ingrese la operacion que desea realizar");
+			operation=lecture.next();
+
+
 			if(mode==1){
 
 				switch(operation){
@@ -59,74 +51,97 @@ public class Calculator{
 								numberTwo=Conditional(numberTwo);
 								result=String.valueOf(SimpleOperations.Sumation(Double.parseDouble(numberOne),Double.parseDouble(numberTwo)));
 								System.out.println("el resultado de la suma es: "+result);
+								SaveNumbers(result);
 								break;
 
 
 					case "-": 	System.out.println("ingrese el primer numero");
 								numberOne=lecture.next();
+								numberOne=Conditional(numberOne);
 								System.out.println("ingrese el segundo numero");
 								numberTwo=lecture.next();
+								numberTwo=Conditional(numberTwo);
 								result=String.valueOf(SimpleOperations.Subtraction(Double.parseDouble(numberOne),Double.parseDouble(numberTwo)));
 								System.out.println("el resultado de la resta es: "+result);
+								SaveNumbers(result);
 								break;
 
 
 					case "*":	System.out.println("ingrese el primer numero");
 								numberOne=lecture.next();
+								numberOne=Conditional(numberOne);
 								System.out.println("ingrese el segundo numero");
 								numberTwo=lecture.next();
+								numberTwo=Conditional(numberTwo);
 								result=String.valueOf(SimpleOperations.Multiplication(Double.parseDouble(numberOne),Double.parseDouble(numberTwo)));
 								System.out.println("el resultado de la multiplicacion es: "+result);
+								SaveNumbers(result);
 								break;
 
 
 					case "/":	System.out.println("ingrese el primer numero");
 								numberOne=lecture.next();
+								numberOne=Conditional(numberOne);
 								System.out.println("ingrese el segundo numero");
 								numberTwo=lecture.next();
+								numberTwo=Conditional(numberTwo);
 								result=String.valueOf(SimpleOperations.Division(Double.parseDouble(numberOne),Double.parseDouble(numberTwo)));
 								System.out.println("el resultado de la division es: "+result);
+								SaveNumbers(result);
 								break;
 
 
 					case "%": 	System.out.println("ingrese el primer numero");
 								numberOne=lecture.next();
+								numberOne=Conditional(numberOne);
 								System.out.println("ingrese el segundo numero");
 								numberTwo=lecture.next();
+								numberTwo=Conditional(numberTwo);
 								result=String.valueOf(SimpleOperations.Module(Double.parseDouble(numberOne),Double.parseDouble(numberTwo)));
 								System.out.println("el resultado de la modulo es: "+result);
+								SaveNumbers(result);
 								break;
 
 
-					case "RAIZ": 	System.out.println("ingrese el primer numero");
+					case "RAIZ": 	System.out.println("ingrese el numero");
 									numberOne=lecture.next();
+									numberOne=Conditional(numberOne);
 									result=String.valueOf(ComplexOperations.SquareRoot(Double.parseDouble(numberOne)));
 									System.out.println("el resultado de la raiz es: "+result);
+									SaveNumbers(result);
 									break;
 
 
 					case "RAIZN": 	System.out.println("ingrese el primer numero");
 									numberOne=lecture.next();
+									numberOne=Conditional(numberOne);
 									System.out.println("ingrese el segundo numero");
 									numberTwo=lecture.next();
+									numberTwo=Conditional(numberTwo);
 									result=String.valueOf(ComplexOperations.NthRoot(Double.parseDouble(numberOne),Double.parseDouble(numberTwo)));
 									System.out.println("el resultado de la raiz enesima es: "+result);
+									SaveNumbers(result);
 									break;
 
 
 					case "POTENCIACION": 	System.out.println("ingrese el primer numero");
 											numberOne=lecture.next();
+											numberOne=Conditional(numberOne);
 											System.out.println("ingrese el segundo numero");
 											numberTwo=lecture.next();
+											numberTwo=Conditional(numberTwo);
 											result=String.valueOf(ComplexOperations.Potentiation(Double.parseDouble(numberOne),Double.parseDouble(numberTwo)));
 											System.out.println("el resultado de la potenciacion es: "+result);
+											SaveNumbers(result);
 											break;
 
 
-					case "FACTORIAL": 	System.out.println("ingrese el primer numero");
+					case "FACTORIAL": 	System.out.println("ingrese el numero");
 										numberOne=lecture.next();
+										numberOne=Conditional(numberOne);
 										result=String.valueOf(ComplexOperations.Factorial(Double.parseDouble(numberOne)));
 										System.out.println("el resultado del factorial es: "+result);
+										SaveNumbers(result);
 										break;
 
 					case "CONVERSION": 	MenuConvertions();
@@ -136,45 +151,58 @@ public class Calculator{
 
 											case "RAD":		System.out.println("ingrese el numero");
 															numberOne=lecture.next();
+															numberOne=Conditional(numberOne);
 															result=String.valueOf(TrigonometricOperations.DegToRad(Double.parseDouble(numberOne)));
+															SaveNumbers(result);
 															break;
 
 											case "DEG":		System.out.println("no necesita poner Pi, la calculadora lo hara automaticamente");
 															System.out.println("ingrese el numerador");
 															numberOne=lecture.next();
+															numberOne=Conditional(numberOne);
 															System.out.println("ingrese el denominador");
 															numberTwo=lecture.next();
+															numberTwo=Conditional(numberTwo);
 															result=String.valueOf(TrigonometricOperations.RadToDeg(Double.parseDouble(numberOne),Double.parseDouble(numberTwo)));
+															SaveNumbers(result);
 															break;
 
 											case "DECTOBIN":	System.out.println("ingrese el numero");
-																numberOne=lecture.next();	
+																numberOne=lecture.next();
+																numberOne=Conditional(numberOne);	
 																result=String.valueOf(ConvertersDecimal.BinaryConverter(Double.parseDouble(numberOne)));
 																break;
 
 											case "DECTOHEX":	System.out.println("ingrese el numero");
 																numberOne=lecture.next();	
+																numberOne=Conditional(numberOne);
 																result=String.valueOf(ConvertersDecimal.HexaConverter(Double.parseDouble(numberOne)));
 																break;
 
 											case "BINTODEC":	System.out.println("ingrese el numero");
-																numberOne=lecture.next();	
+																numberOne=lecture.next();
+																numberOne=Conditional(numberOne);	
 																result=String.valueOf(ConvertersBinary.DecimalConverter(numberOne));
+																SaveNumbers(result);
 																break;
 
 											case "BINTOHEX":	System.out.println("ingrese el numero");
-																numberOne=lecture.next();	
+																numberOne=lecture.next();
+																numberOne=Conditional(numberOne);	
 																result=ConvertersBinary.HexaConverter(numberOne);
 																break;
 
 											case "HEXTODEC":	System.out.println("ingrese el numero");
-																numberOne=lecture.next();	
+																numberOne=lecture.next();
+																numberOne=Conditional(numberOne);	
 																result=String.valueOf(ConvertersHexadecimal.DecimalConverter(numberOne));
+																SaveNumbers(result);
 																break;
 
 
 											case "HEXTOBIN":	System.out.println("ingrese el numero");
-																numberOne=lecture.next();	
+																numberOne=lecture.next();
+																numberOne=Conditional(numberOne);	
 																result=ConvertersHexadecimal.BinaryConverter(numberOne);
 																break;
 
@@ -193,8 +221,10 @@ public class Calculator{
 									}
 									System.out.println("ingrese el numero");
 									numberOne=lecture.next();
+									numberOne=Conditional(numberOne);
 									result=String.valueOf(TrigonometricOperations.Sine(Double.parseDouble(numberOne),degOrGrad));
 									System.out.println("el resultado del seno es: "+result);
+									SaveNumbers(result);
 									break;
 
 					case "COS": 	System.out.println("ingrese uno si va a introducir grados");
@@ -206,8 +236,10 @@ public class Calculator{
 									}
 									System.out.println("ingrese el numero");
 									numberOne=lecture.next();
+									numberOne=Conditional(numberOne);
 									result=String.valueOf(TrigonometricOperations.Cosine(Double.parseDouble(numberOne),degOrGrad));
 									System.out.println("el resultado del coseno es es: "+result);
+									SaveNumbers(result);
 									break;
 
 
@@ -220,27 +252,34 @@ public class Calculator{
 									}
 									System.out.println("ingrese el numero");
 									numberOne=lecture.next();
+									numberOne=Conditional(numberOne);
 									result=String.valueOf(TrigonometricOperations.Tangent(Double.parseDouble(numberOne),degOrGrad));
 									System.out.println("el resultado de la tangente es es: "+result);
+									SaveNumbers(result);
 									break;
 
 
-					case "LOG":		System.out.println("ingrese el primer numero");
+					case "LOG":		System.out.println("ingrese el numero");
 									numberOne=lecture.next();
+									numberOne=Conditional(numberOne);
 									result=String.valueOf(ComplexOperations.Logarithm10(Double.parseDouble(numberOne)));
 									System.out.println("el resultado del logaritmo base 10 es: "+result);
+									SaveNumbers(result);
 									break;
 
 
-					case "LOGN": 	System.out.println("ingrese el primer numero");
+					case "LOGN": 	System.out.println("ingrese el numero");
 									numberOne=lecture.next();
+									numberOne=Conditional(numberOne);
 									result=String.valueOf(ComplexOperations.LogarithmE(Double.parseDouble(numberOne)));
 									System.out.println("el resultado del logaritmo base natural es: "+result);
+									SaveNumbers(result);
 									break;
 
 
-					case "NOTACIONC": 	System.out.println("ingrese el primer numero");
+					case "NOTACIONC": 	System.out.println("ingrese el numero");
 										numberOne=lecture.next();
+										numberOne=Conditional(numberOne);
 										while(Double.parseDouble(numberOne)<=0){
 											System.out.println("la operacion no se puede realizar con numeros negativos");
 											System.out.println("vuelva a ingresar un numero");
@@ -254,28 +293,472 @@ public class Calculator{
 					case "OPERACION":	Message();
 
 
+					case "MEMORIA": for(int count=0;count<10;count++){
+
+										System.out.println("el dato "+(count+1)+" es: "+array[count]);
+
+									}
+
+
+					default: System.out.println("la opercion que usted ingreso no se encuentra entre nuestras opciones");
+
+
 				}//fin del switch
 
+				System.out.println("ingrese 0 si desea seguir usando la calculadora, de lo contrario ingrese cualquier otro numero");
+				continueOperation=reader.nextInt();
+				if(continueOperation!=0){
+					break;
+				}
 
+				System.out.println("ingrese 1 si desea continuar en este modo, ingrese 2 si desea cambiar al modo de operaciones continuas");
+				mode=reader.nextInt();
+
+				while(mode!=1 && mode!=2){
+
+					System.out.println("para escoger un modo solo puede ingresa uno o dos");
+					mode=reader.nextInt();	
+
+				}//fin del while
 
 
 			}//fin del modo uno
 			else if(mode==2){
+				switch(operation){
 
-				
+					case "+": 	if(modeTwo!=0){
+
+									numberOne=array[0];
+
+								}
+								else{
+									System.out.println("ingrese el primer numero");
+									numberOne=lecture.next();
+									numberOne=Conditional(numberOne);
+								}
+								System.out.println("ingrese el segundo numero");
+								numberTwo=lecture.next();
+								numberTwo=Conditional(numberTwo);
+								result=String.valueOf(SimpleOperations.Sumation(Double.parseDouble(numberOne),Double.parseDouble(numberTwo)));
+								System.out.println("el resultado de la suma es: "+result);
+								SaveNumbers(result);
+								break;
 
 
+					case "-": 	if(modeTwo!=0){
 
+									numberOne=array[0];
+
+								}
+								else{
+									System.out.println("ingrese el primer numero");
+									numberOne=lecture.next();
+									numberOne=Conditional(numberOne);
+								}
+								System.out.println("ingrese el segundo numero");
+								numberTwo=lecture.next();
+								numberTwo=Conditional(numberTwo);
+								result=String.valueOf(SimpleOperations.Subtraction(Double.parseDouble(numberOne),Double.parseDouble(numberTwo)));
+								System.out.println("el resultado de la resta es: "+result);
+								SaveNumbers(result);
+								break;
+
+
+					case "*":	if(modeTwo!=0){
+
+									numberOne=array[0];
+
+								}
+								else{
+									System.out.println("ingrese el primer numero");
+									numberOne=lecture.next();
+									numberOne=Conditional(numberOne);
+								}
+								System.out.println("ingrese el segundo numero");
+								numberTwo=lecture.next();
+								numberTwo=Conditional(numberTwo);
+								result=String.valueOf(SimpleOperations.Multiplication(Double.parseDouble(numberOne),Double.parseDouble(numberTwo)));
+								System.out.println("el resultado de la multiplicacion es: "+result);
+								SaveNumbers(result);
+								break;
+
+
+					case "/":	if(modeTwo!=0){
+
+									numberOne=array[0];
+
+								}
+								else{
+									System.out.println("ingrese el primer numero");
+									numberOne=lecture.next();
+									numberOne=Conditional(numberOne);
+								}
+								System.out.println("ingrese el segundo numero");
+								numberTwo=lecture.next();
+								numberTwo=Conditional(numberTwo);
+								result=String.valueOf(SimpleOperations.Division(Double.parseDouble(numberOne),Double.parseDouble(numberTwo)));
+								System.out.println("el resultado de la division es: "+result);
+								SaveNumbers(result);
+								break;
+
+
+					case "%": 	if(modeTwo!=0){
+
+									numberOne=array[0];
+
+								}
+								else{
+									System.out.println("ingrese el primer numero");
+									numberOne=lecture.next();
+									numberOne=Conditional(numberOne);
+								}
+								System.out.println("ingrese el segundo numero");
+								numberTwo=lecture.next();
+								numberTwo=Conditional(numberTwo);
+								result=String.valueOf(SimpleOperations.Module(Double.parseDouble(numberOne),Double.parseDouble(numberTwo)));
+								System.out.println("el resultado de la modulo es: "+result);
+								SaveNumbers(result);
+								break;
+
+
+					case "RAIZ": 	if(modeTwo!=0){
+
+										numberOne=array[0];
+
+									}
+									else{
+										System.out.println("ingrese el numero");
+										numberOne=lecture.next();
+										numberOne=Conditional(numberOne);
+									}
+									result=String.valueOf(ComplexOperations.SquareRoot(Double.parseDouble(numberOne)));
+									System.out.println("el resultado de la raiz es: "+result);
+									SaveNumbers(result);
+									break;
+
+
+					case "RAIZN": 	if(modeTwo!=0){
+
+										numberOne=array[0];
+
+									}
+									else{
+										System.out.println("ingrese el primer numero");
+										numberOne=lecture.next();
+										numberOne=Conditional(numberOne);
+									}
+									System.out.println("ingrese el segundo numero");
+									numberTwo=lecture.next();
+									numberTwo=Conditional(numberTwo);
+									result=String.valueOf(ComplexOperations.NthRoot(Double.parseDouble(numberOne),Double.parseDouble(numberTwo)));
+									System.out.println("el resultado de la raiz enesima es: "+result);
+									SaveNumbers(result);
+									break;
+
+
+					case "POTENCIACION": 	if(modeTwo!=0){
+
+												numberOne=array[0];
+
+											}
+											else{
+												System.out.println("ingrese el primer numero");
+												numberOne=lecture.next();
+												numberOne=Conditional(numberOne);
+											}
+											System.out.println("ingrese el segundo numero");
+											numberTwo=lecture.next();
+											numberTwo=Conditional(numberTwo);
+											result=String.valueOf(ComplexOperations.Potentiation(Double.parseDouble(numberOne),Double.parseDouble(numberTwo)));
+											System.out.println("el resultado de la potenciacion es: "+result);
+											SaveNumbers(result);
+											break;
+
+
+					case "FACTORIAL": 	if(modeTwo!=0){
+
+											numberOne=array[0];
+
+										}
+										else{
+											System.out.println("ingrese el numero");
+											numberOne=lecture.next();
+											numberOne=Conditional(numberOne);
+										}
+										result=String.valueOf(ComplexOperations.Factorial(Double.parseDouble(numberOne)));
+										System.out.println("el resultado del factorial es: "+result);
+										SaveNumbers(result);
+										break;
+
+					case "CONVERSION": 	MenuConvertions();
+										convertionsTipe=lecture.next();
+										System.out.println(convertionsTipe);
+										switch(convertionsTipe){
+
+											case "RAD":		if(modeTwo!=0){
+
+																numberOne=array[0];
+
+															}
+															else{
+																System.out.println("ingrese el numero");
+																numberOne=lecture.next();
+																numberOne=Conditional(numberOne);
+															}
+															result=String.valueOf(TrigonometricOperations.DegToRad(Double.parseDouble(numberOne)));
+															SaveNumbers(result);
+															break;
+
+											case "DEG":		if(modeTwo!=0){
+
+																numberOne=array[0];
+
+															}
+															else{
+																System.out.println("no necesita poner Pi, la calculadora lo hara automaticamente");
+																System.out.println("ingrese el numerador");
+																numberOne=lecture.next();
+																numberOne=Conditional(numberOne);
+															}
+															System.out.println("ingrese el denominador");
+															numberTwo=lecture.next();
+															numberTwo=Conditional(numberTwo);
+															numberTwo=Conditional(numberTwo);
+															result=String.valueOf(TrigonometricOperations.RadToDeg(Double.parseDouble(numberOne),Double.parseDouble(numberTwo)));
+															SaveNumbers(result);
+															break;
+
+											case "DECTOBIN":	if(modeTwo!=0){
+
+																	numberOne=array[0];
+
+																}
+																else{
+																
+																	System.out.println("ingrese el numero");
+																	numberOne=lecture.next();
+																	numberOne=Conditional(numberOne);
+																}	
+																result=String.valueOf(ConvertersDecimal.BinaryConverter(Double.parseDouble(numberOne)));
+																break;
+
+											case "DECTOHEX":	if(modeTwo!=0){
+
+																	numberOne=array[0];
+
+																}
+																else{
+																
+																	System.out.println("ingrese el numero");
+																	numberOne=lecture.next();
+																	numberOne=Conditional(numberOne);
+																}	
+																result=String.valueOf(ConvertersDecimal.HexaConverter(Double.parseDouble(numberOne)));
+																break;
+
+											case "BINTODEC":	
+																System.out.println("ingrese el numero");
+																numberOne=lecture.next();
+																numberOne=Conditional(numberOne);
+																	
+																result=String.valueOf(ConvertersBinary.DecimalConverter(numberOne));
+																SaveNumbers(result);
+																break;
+
+											case "BINTOHEX":	System.out.println("ingrese el numero");
+																numberOne=lecture.next();
+																numberOne=Conditional(numberOne);	
+																result=ConvertersBinary.HexaConverter(numberOne);
+																break;
+
+											case "HEXTODEC":	System.out.println("ingrese el numero");
+																numberOne=lecture.next();
+																numberOne=Conditional(numberOne);	
+																result=String.valueOf(ConvertersHexadecimal.DecimalConverter(numberOne));
+																SaveNumbers(result);
+																break;
+
+
+											case "HEXTOBIN":	System.out.println("ingrese el numero");
+																numberOne=lecture.next();
+																numberOne=Conditional(numberOne);	
+																result=ConvertersHexadecimal.BinaryConverter(numberOne);
+																break;
+
+										}
+
+										System.out.println("el resultado de la conversion es: "+result);
+										break;
+
+
+					case "SEN": 	System.out.println("ingrese uno si va a introducir grados");
+									System.out.println("ingrese dos si va a introducir radianes");
+									degOrGrad= reader.nextInt();
+									while((degOrGrad!=1) &&(degOrGrad!=2)){
+										System.out.println("solo puede ingresar uno o dos para la seleccion");
+										degOrGrad= reader.nextInt();
+									}
+									if(modeTwo!=0){
+
+										numberOne=array[0];
+
+									}
+									else{
+																
+										System.out.println("ingrese el numero");
+										numberOne=lecture.next();
+										numberOne=Conditional(numberOne);
+									}	
+									result=String.valueOf(TrigonometricOperations.Sine(Double.parseDouble(numberOne),degOrGrad));
+									System.out.println("el resultado del seno es: "+result);
+									SaveNumbers(result);
+									break;
+
+					case "COS": 	System.out.println("ingrese uno si va a introducir grados");
+									System.out.println("ingrese dos si va a introducir radianes");
+									degOrGrad= reader.nextInt();
+									while((degOrGrad!=1) &&(degOrGrad!=2)){
+										System.out.println("solo puede ingresar uno o dos para la seleccion");
+										degOrGrad= reader.nextInt();
+									}
+									if(modeTwo!=0){
+
+										numberOne=array[0];
+
+									}
+									else{
+																
+										System.out.println("ingrese el numero");
+										numberOne=lecture.next();
+										numberOne=Conditional(numberOne);
+									}	
+									result=String.valueOf(TrigonometricOperations.Cosine(Double.parseDouble(numberOne),degOrGrad));
+									System.out.println("el resultado del coseno es es: "+result);
+									SaveNumbers(result);
+									break;
+
+
+					case "TAN": 	System.out.println("ingrese uno si va a introducir grados");
+									System.out.println("ingrese dos si va a introducir radianes");
+									degOrGrad= reader.nextInt();
+									while((degOrGrad!=1) &&(degOrGrad!=2)){
+										System.out.println("solo puede ingresar uno o dos para la seleccion");
+										degOrGrad= reader.nextInt();
+									}
+									if(modeTwo!=0){
+
+										numberOne=array[0];
+
+									}
+									else{
+																
+										System.out.println("ingrese el numero");
+										numberOne=lecture.next();
+										numberOne=Conditional(numberOne);
+									}	
+									result=String.valueOf(TrigonometricOperations.Tangent(Double.parseDouble(numberOne),degOrGrad));
+									System.out.println("el resultado de la tangente es es: "+result);
+									SaveNumbers(result);
+									break;
+
+
+					case "LOG":		if(modeTwo!=0){
+
+										numberOne=array[0];
+
+									}
+									else{
+																
+										System.out.println("ingrese el numero");
+										numberOne=lecture.next();
+										numberOne=Conditional(numberOne);
+									}	
+									result=String.valueOf(ComplexOperations.Logarithm10(Double.parseDouble(numberOne)));
+									System.out.println("el resultado del logaritmo base 10 es: "+result);
+									SaveNumbers(result);
+									break;
+
+
+					case "LOGN": 	if(modeTwo!=0){
+
+										numberOne=array[0];
+
+									}
+									else{
+																
+										System.out.println("ingrese el numero");
+										numberOne=lecture.next();
+										numberOne=Conditional(numberOne);
+									}	
+									result=String.valueOf(ComplexOperations.LogarithmE(Double.parseDouble(numberOne)));
+									System.out.println("el resultado del logaritmo base natural es: "+result);
+									SaveNumbers(result);
+									break;
+
+
+					case "NOTACIONC": 	if(modeTwo!=0){
+
+											numberOne=array[0];
+
+										}
+										else{
+																
+											System.out.println("ingrese el numero");
+											numberOne=lecture.next();
+											numberOne=Conditional(numberOne);
+										}	
+										while(Double.parseDouble(numberOne)<=0){
+											System.out.println("la operacion no se puede realizar con numeros negativos");
+											System.out.println("vuelva a ingresar un numero");
+											numberOne=lecture.next();
+										}
+										result=ComplexOperations.Baseten(Double.parseDouble(numberOne));
+										System.out.println("el resultado del logaritmo base natural es: "+result);
+										break;
+
+
+					case "OPERACION":	Message();
+
+
+					case "MEMORIA": for(int count=0;count<10;count++){
+
+										System.out.println("el dato "+(count+1)+" es: "+array[count]);
+
+									}
+
+
+					default: System.out.println("la opercion que usted ingreso no se encuentra entre nuestras opciones");
+
+
+				}//fin del switch
+
+				System.out.println("ingrese 0 si desea seguir usando la calculadora, de lo contrario ingrese cualquier otro numero");
+				continueOperation=reader.nextInt();
+				if(continueOperation!=0){
+					break;
+				}
+
+				System.out.println("ingrese 2 si desea continuar en este modo, ingrese 1 si desea cambiar al modo de una operacion a la vez");
+				mode=reader.nextInt();
+
+				while(mode!=1 && mode!=2){
+
+					System.out.println("para escoger un modo solo puede ingresa uno o dos");
+					mode=reader.nextInt();	
+
+				}//fin del while
+				modeTwo++;
+				if(mode==1){
+					modeTwo=0;
+				}
 
 
 			}//fin del modo dos 
 
+			
 		}//fin del bucle, cuando se termine el bucle la calculadora tambien debera terminar
 
-
-
-
-		
+	
 	}//fin del metodo
 
 	public static void Message(){
@@ -296,6 +779,10 @@ public class Calculator{
 		System.out.println("escriba <LOGN> para realizar el logaritmo natural ");
 		System.out.println("escriba <NOTACIONC> para realizar la notacion cientifica ");
 		System.out.println("escriba <OPERACION> cuando desee ver nuevamente las operaciones que puede usar");
+		System.out.println("escriba <MEMORIA> para ver los datos que tiene guardados en memoria");
+		System.out.println("si desea usar uno de los datos en memoria en una operacion escriba <mem(numero del dato)>");
+		System.out.println("por ejemplo <mem1> lamaria al dato en el espacio uno de le memoria, hay un total de diez espacios");
+		System.out.println("tenga en cuenta que al iniciar iniciar la calculadora no tiene ningun dato guardado");
 		System.out.println("si desea usar pi en una operacion escriba <P>");
 
 	}//fin del metodo
@@ -316,14 +803,80 @@ public class Calculator{
 
 	public static String Conditional(String number){
 		String result="";
+		char helper;
+		helper=number.charAt(0);
+		int superHelper;
 
-		if(number!="P"){
+
+		if(helper!='P'){
 			result=number;
 		}
 		else{
 			result="3.1416";
+		}//fin del condicional
+
+		if(helper!='m'){
+
 		}
+		else{
+			helper=number.charAt(3);
+			superHelper=Integer.parseInt(""+helper);
+
+			if(number.length()==5){
+
+				result=array[9];
+
+			}
+			else{
+				switch(superHelper){
+
+					case 1: result=array[0];
+					 		break;
+
+					case 2:	result=array[1];
+							break;
+
+					case 3:	result=array[2];
+							break;
+
+					case 4:	result=array[3];
+							break;
+
+					case 5:	result=array[4];
+							break;
+
+					case 6:	result=array[5];
+							break;
+
+					case 7:	result=array[6];
+							break;
+
+					case 8:	result=array[7];
+							break;
+
+					case 9:	result=array[8];
+							break;
+
+				}//fin del switch
+			}//fin de la condicion
+		}//fin del condicional
+
 		return result;
 	}
+
+	public static void SaveNumbers(String result){
+
+		for(int count=9;count>=0;count--){
+				if(count>=1){
+					array[count]=array[count-1];
+				}
+				else{
+					array[count]=result;
+				}
+	
+		}//fin del guardado de los datos en el array
+
+	}//fin del metodo
+
 
 }//FIN DE LA CLASE

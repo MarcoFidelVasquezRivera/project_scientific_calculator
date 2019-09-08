@@ -65,11 +65,11 @@ public class ComplexOperations{
 
 			}//fin del bucle
 
-			i=0-i;
+			i=0-i; 
 		}
-		else if(numberOne>10){
+		else if(numberOne>=10){
 
-			for(i=0;numberOne>10;i++){
+			for(i=0;numberOne>=10;i++){
 
 				numberOne=numberOne/10;
 
