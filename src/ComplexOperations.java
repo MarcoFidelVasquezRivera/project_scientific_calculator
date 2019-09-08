@@ -8,20 +8,21 @@ public class ComplexOperations{
 		
 		double helper=0;
 		helper=numberOne/10;
+		int cont=0;
 		
-		while(result*result!=numberOne){
+		while(result*result!=numberOne && (cont<100)){
 
 			result=(helper/2)+(numberOne/(2*helper));
 			helper=result;
-			
+			cont++;
 		}
-		return result;
+		return result;//funciona
 	}//fin del metodo de raiz cuadrada
 	
 	public static double NthRoot(double numberOne, double numberTwo){
 		
 		result=	Math.pow(numberOne,1.0/numberTwo);
-		return result;
+		return result;//funciona
 	}//fin del metodo de raiz enesima,aun en desarrollo
 	
 	public static double Potentiation(double numberOne, double numberTwo){
@@ -31,7 +32,7 @@ public class ComplexOperations{
 			result*=numberOne;
 		}
 		
-		return result;
+		return result;//funciona
 	}//fin del metodo poteciacion
 	
 	public static double Factorial(double numberOne){
@@ -40,28 +41,53 @@ public class ComplexOperations{
 			result=result*i;//poner un if dentro del for
 			
 		}
-		return result;
+		return result;//funciona
 	}//fin del metodo factorial
 	
 	public static double Logarithm10(double numberOne){
 		
 		result=java.lang.Math.log10(numberOne);
 		
-		return result;
+		return result;//funciona
 	}//fin del metodo del logaritmo base 10
 	
-	public static double baseten(double numberOne){
-		
-		//result= 0.0;//incompleto
-		
-		return result;
+	public static String Baseten(double numberOne){
+		 int i=0;
+		 String solution="";
+		 String helper="";
+
+		if(numberOne<1){
+
+			for(i=0;numberOne<1;i++){
+
+				numberOne=numberOne*10;
+
+
+			}//fin del bucle
+
+			i=0-i;
+		}
+		else if(numberOne>10){
+
+			for(i=0;numberOne>10;i++){
+
+				numberOne=numberOne/10;
+
+			}
+
+
+		}
+		solution=String.valueOf(numberOne);
+		helper=String.valueOf(i);
+		solution=solution+"E"+helper;
+		return solution;
 	}//fin metodo de base 10
 	
-	public static double logarithmE(double numberOne){
+	public static double LogarithmE(double numberOne){
 
 		result=Math.log(numberOne);
 
-		return result;
+		return result;//funciona
 	}//fin del metodo
 
 	

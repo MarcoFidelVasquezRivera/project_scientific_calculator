@@ -5,18 +5,19 @@ public class ConvertersHexadecimal{
 	public static double DecimalConverter(String numberOne){
 		double result=0.0;
 		char helper;
+		int count=0;
 
 		for(int i=(numberOne.length()-1);i>=0;i--){
 
 			helper=numberOne.charAt(i);
-			result=result+DecimalProcess(helper,i);
-
+			result=result+DecimalProcess(helper,count);
+			count++;
 		}
 		return result;
 	}//fin del metodo para convertir de hexadecimal a decimal
 
 
-	public static int DecimalProcess(char numberHexa,int power){
+	public static double DecimalProcess(char numberHexa,int power){
 		double result=0.0;
 
 		switch(numberHexa){
@@ -74,11 +75,11 @@ public class ConvertersHexadecimal{
 	}//fin del metodo
 
 
-	public static long BinaryConverter(String numberOne){
-		double result=0.0;
+	public static String BinaryConverter(String numberOne){
+		String result="";
 		double helper=0.0;
 
-		helper=Double.parseDouble(DecimalConverter(numberOne));
+		helper=DecimalConverter(numberOne);
 		result=ConvertersDecimal.BinaryConverter(helper);
 
 		return result;

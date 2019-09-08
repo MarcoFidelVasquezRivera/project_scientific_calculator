@@ -11,9 +11,10 @@ public class ConvertersDecimal{
 			while(numberOne>1){
 				
 				module=numberOne%2;
-				numberOne=numberOne/2;
+				numberOne=Math.floor(numberOne/2);
 
-				if(numberOne<2){
+				if(numberOne==1 || numberOne==0){
+					result=BinaryProcess(module)+result;
 					result=BinaryProcess(numberOne)+result;
 				}
 				else{
@@ -53,10 +54,11 @@ public class ConvertersDecimal{
 		else{
 			while(numberOne>15){
 
-				module=numberOne%16;
-				numberOne=numberOne/16;
+				module=(int)numberOne%16;
+				numberOne=(Math.floor(numberOne/16));
 
 				if(numberOne<16){
+					result=HexaProcess((int)module)+result;
 					result=HexaProcess((int)numberOne)+result;
 				}
 				else{
