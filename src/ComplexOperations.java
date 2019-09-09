@@ -39,12 +39,13 @@ public class ComplexOperations{
 		if((numberTwo%2)==(0) && numberOne<0){
 			result=0;
 			System.out.println("no se puede sacar una raiz par de un numero negativo");
+			result=0;
 		}
 		else{
 			result=	Math.pow(numberOne,1.0/numberTwo);
-			return result;//funciona
+			
 		}
-		
+		return result;//funciona
 	}//fin del metodo de raiz enesima,aun en desarrollo
 
 /**
@@ -95,6 +96,14 @@ public class ComplexOperations{
 		
 		return result;//funciona
 	}//fin del metodo del logaritmo base 10
+
+/**
+*This method calculates the scientific notation of a number.
+*<b>pre:</b> result has been declared.<br>
+*<b>Post:</b> The method has calculated the scientific notation.<br>
+@param numberOne its the given number. numberOne>0.
+@return result result of the scientific notation. 
+*/
 	
 	public static String Baseten(double numberOne){
 		 int i=0;

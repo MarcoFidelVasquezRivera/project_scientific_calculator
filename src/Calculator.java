@@ -840,45 +840,120 @@ public class Calculator{
 			helper=number.charAt(3);
 			superHelper=Integer.parseInt(""+helper);
 
-			if(number.length()==5){
+			if(number.length()>=5){
 
-				result=array[9];
-
+				if(number.length()>5){
+					System.out.println("el espacio en memoria que ingreso no existe, se ingresara el numero uno por defecto");
+					result="1";
+				}
+				else{
+					if(array[9]==null){
+						System.out.println("el valor en memoria que ingreso esta vacio, se ingresara por defecto el numero 1");
+						result="1";
+					}
+					else{
+						result=array[9];
+					 
+					}
+				}				
+				
 			}
 			else{
 				switch(superHelper){
 
-					case 1: result=array[0];
-					 		break;
+					case 1: if(array[0]==null){
+								System.out.println("el valor en memoria que ingreso esta vacio, se ingresara por defecto el numero 1");
+								result="1";
+							}
+							else{
+								result=array[0];
+					 			
+							}
+							break;	
 
-					case 2:	result=array[1];
-							break;
+					case 2:	if(array[1]==null){
+								System.out.println("el valor en memoria que ingreso esta vacio, se ingresara por defecto el numero 1");
+								result="1";
+							}
+							else{
+								result=array[1];
+					 			
+							}
+							break;	
 
-					case 3:	result=array[2];
-							break;
+					case 3:	if(array[2]==null){
+								System.out.println("el valor en memoria que ingreso esta vacio, se ingresara por defecto el numero 1");
+								result="1";
+							}
+							else{
+								result=array[2];
+					 				
+							}
+							break;	
 
-					case 4:	result=array[3];
-							break;
+					case 4:	if(array[3]==null){
+								System.out.println("el valor en memoria que ingreso esta vacio, se ingresara por defecto el numero 1");
+								result="1";
+							}
+							else{
+								result=array[3];
+					 				
+							}
+							break;	
+							
+					case 5:	if(array[4]==null){
+								System.out.println("el valor en memoria que ingreso esta vacio, se ingresara por defecto el numero 1");
+								result="1";
+							}
+							else{
+								result=array[4];
+					 			
+							}
+							break;	
 
-					case 5:	result=array[4];
-							break;
+					case 6:	if(array[5]==null){
+								System.out.println("el valor en memoria que ingreso esta vacio, se ingresara por defecto el numero 1");
+								result="1";
+							}
+							else{
+								result=array[5];
+					 				
+							}
+							break;	
 
-					case 6:	result=array[5];
-							break;
+					case 7:	if(array[6]==null){
+								System.out.println("el valor en memoria que ingreso esta vacio, se ingresara por defecto el numero 1");
+								result="1";
+							}
+							else{
+								result=array[6];
+					 			
+							}
+							break;	
 
-					case 7:	result=array[6];
-							break;
+					case 8:	if(array[7]==null){
+								System.out.println("el valor en memoria que ingreso esta vacio, se ingresara por defecto el numero 1");
+								result="1";
+							}
+							else{
+								result=array[7];
+					 				
+							}
+							break;	
 
-					case 8:	result=array[7];
-							break;
-
-					case 9:	result=array[8];
-							break;
-
+					case 9:	if(array[8]==null){
+								System.out.println("el valor en memoria que ingreso esta vacio, se ingresara por defecto el numero 1");
+								result="1";
+							}
+							else{
+								result=array[8];
+					 				
+							}
+							break;	
+							
 				}//fin del switch
 			}//fin de la condicion
 		}//fin del condicional
-
 		return result;
 	}
 
