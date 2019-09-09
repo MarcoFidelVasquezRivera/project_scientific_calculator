@@ -824,7 +824,8 @@ public class Calculator{
 		char helper;
 		helper=number.charAt(0);
 		int superHelper;
-		 if(number==null || number==""){
+
+		if(number==null || number==""){
 		 	System.out.println("usted no ha ingresado ningun valor,se ingresara el numero 1 por defecto");
 		 	result="1";
 		 }

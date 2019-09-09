@@ -59,10 +59,20 @@ public class ComplexOperations{
 	
 	public static double Potentiation(double numberOne, double numberTwo){
 		result=numberOne;
-		
-		for(int i=1;i<numberTwo;i++){
-			result*=numberOne;
+		if(numberTwo<0){
+			System.out.println("no se puede potenciar por un numero negativo");
+			result=0;
 		}
+		else if(numberTwo==0){
+			result=1;
+		}
+		else{
+			for(int i=1;i<numberTwo;i++){
+			result*=numberOne;
+			}
+
+		}
+		
 		
 		return result;//funciona
 	}//fin del metodo poteciacion
