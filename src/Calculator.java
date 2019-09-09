@@ -824,30 +824,33 @@ public class Calculator{
 		char helper;
 		helper=number.charAt(0);
 		int superHelper;
-
-
-		if(helper!='P'){
-			result=number;
-		}
+		 if(number==null || number==""){
+		 	System.out.println("usted no ha ingresado ningun valor,se ingresara el numero 1 por defecto");
+		 	result="1";
+		 }
 		else{
-			result="3.1416";
-		}//fin del condicional
+			if(helper!='P'){
+				result=number;
+			}
+			else{
+				result="3.1416";
+			}//fin del condicional
 
-		if(helper!='m'){
+			if(helper!='m'){
 
-		}
-		else{
-			helper=number.charAt(3);
-			superHelper=Integer.parseInt(""+helper);
+			}
+			else{
+				helper=number.charAt(3);
+				superHelper=Integer.parseInt(""+helper);
 
-			if(number.length()>=5){
+				if(number.length()>=5){
 
-				if(number.length()>5){
-					System.out.println("el espacio en memoria que ingreso no existe, se ingresara el numero uno por defecto");
-					result="1";
-				}
-				else{
-					if(array[9]==null){
+					if(number.length()>5){
+						System.out.println("el espacio en memoria que ingreso no existe, se ingresara el numero uno por defecto");
+						result="1";
+					}
+					else{
+						if(array[9]==null){
 						System.out.println("el valor en memoria que ingreso esta vacio, se ingresara por defecto el numero 1");
 						result="1";
 					}
@@ -954,6 +957,8 @@ public class Calculator{
 				}//fin del switch
 			}//fin de la condicion
 		}//fin del condicional
+		}
+		
 		return result;
 	}
 
